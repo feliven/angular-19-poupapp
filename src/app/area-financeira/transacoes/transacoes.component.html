@@ -7,17 +7,18 @@
     <div class="transacoes-e-botao">
       <ul>
         @for (transacao of transacoes(); track transacao.id) {
-          <li class="item-entre-divisorias">
-            <app-transacao [transacao]="transacao" />
-          </li>
+        <li class="item-entre-divisorias">
+          <app-transacao [transacao]="transacao" />
+        </li>
         } @empty {
-          <li aria-hidden="true">
-            Ainda não há transações.
-          </li>
+        <li aria-hidden="true">Ainda não há transações.</li>
         }
       </ul>
-  
-      <app-botao class="botao-adicionar-transacao" texto="Adicionar transação" />
+
+      <app-botao class="botao-adicionar-transacao">
+        <img src="icones/moeda.svg" alt="" class="icone-moeda" />
+        Adicionar transação
+      </app-botao>
     </div>
   </div>
 </section>
