@@ -1,10 +1,14 @@
-import { Directive } from '@angular/core';
+import { afterRender, Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appDestaqueValorNumerico]',
 })
 export class DestaqueValorNumericoDirective {
-  constructor() {
-    console.log('Diretiva aplicada');
+  constructor(elemento: ElementRef<HTMLElement>) {
+    afterRender(() => {
+      elemento.nativeElement.style.color = 'var(--destaque-receita)';
+      console.log(elemento);
+      // console.log('Diretiva aplicada');
+    });
   }
 }
