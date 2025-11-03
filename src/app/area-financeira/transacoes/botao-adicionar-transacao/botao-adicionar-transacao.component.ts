@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 
 import { BotaoComponent } from '../../../compartilhados/botao/botao.component';
 import { ModalComponent } from '../../../compartilhados/modal/modal.component';
@@ -13,6 +13,12 @@ export class BotaoAdicionarTransacaoComponent {
   // modal = viewChild.required<ElementRef<HTMLDialogElement>>('modal');
 
   modalAberto = signal(false);
+
+  constructor() {
+    effect(() => {
+      console.log(this.modalAberto());
+    });
+  }
 
   abrirModal() {
     // this.modal().nativeElement.showModal();

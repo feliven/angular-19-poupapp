@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   input,
+  model,
   viewChild,
   ViewChild,
 } from '@angular/core';
@@ -19,13 +20,19 @@ export class ModalComponent {
 
   // @Input() aberto = false;
 
-  aberto = input(false);
+  aberto = model(false);
 
   constructor() {
     afterRender(() => {
       if (this.aberto()) {
         this.modal().nativeElement.showModal();
+      } else {
+        this.modal().nativeElement.close();
       }
     });
+  }
+
+  fecharModal() {
+    this.aberto.set(false);
   }
 }
