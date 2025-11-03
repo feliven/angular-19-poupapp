@@ -4,8 +4,12 @@
   </div>
 
   <div class="corpo-card">
-    <span class="valor texto-xxxl">
-      {{ saldo() | currency:"BRL" }}
+    <span
+      class="valor texto-xxxl"
+      [appDestaqueValorNumerico]="saldo()"
+      corValorPositivo="lightblue"
+    >
+      {{ saldo() | currency : "BRL" }}
     </span>
   </div>
 </section>

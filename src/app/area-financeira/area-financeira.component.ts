@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { SaldoComponent } from "./saldo/saldo.component";
-import { TransacoesComponent } from "./transacoes/transacoes.component";
-import { ContasComponent } from "./contas/contas.component";
+import { SaldoComponent } from './saldo/saldo.component';
+import { TransacoesComponent } from './transacoes/transacoes.component';
+import { ContasComponent } from './contas/contas.component';
 import { Conta } from './compartilhados/conta.model';
 import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
 
@@ -10,10 +10,10 @@ import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
   selector: 'app-area-financeira',
   imports: [SaldoComponent, TransacoesComponent, ContasComponent],
   templateUrl: './area-financeira.component.html',
-  styleUrl: './area-financeira.component.css'
+  styleUrl: './area-financeira.component.css',
 })
 export class AreaFinanceiraComponent {
-  saldo = 0;
+  saldo = -30;
 
   transacoes: Transacao[] = [
     {
@@ -22,7 +22,7 @@ export class AreaFinanceiraComponent {
       tipo: TipoTransacao.SAQUE,
       valor: 200,
       data: new Date('2025-02-20T00:00'),
-      conta: 'Switch Bank'
+      conta: 'Switch Bank',
     },
     {
       id: '4',
@@ -30,7 +30,7 @@ export class AreaFinanceiraComponent {
       tipo: TipoTransacao.SAQUE,
       valor: 40,
       data: new Date('2025-01-15T00:00'),
-      conta: 'Bytebank'
+      conta: 'Bytebank',
     },
     {
       id: '3',
@@ -38,7 +38,7 @@ export class AreaFinanceiraComponent {
       tipo: TipoTransacao.DEPOSITO,
       valor: 400,
       data: new Date('2025-01-10T00:00'),
-      conta: 'Bytebank'
+      conta: 'Bytebank',
     },
     {
       id: '2',
@@ -46,7 +46,7 @@ export class AreaFinanceiraComponent {
       tipo: TipoTransacao.DEPOSITO,
       valor: 200,
       data: new Date('2024-10-01T00:00'),
-      conta: 'Anybank'
+      conta: 'Anybank',
     },
     {
       id: '1',
@@ -54,7 +54,7 @@ export class AreaFinanceiraComponent {
       tipo: TipoTransacao.DEPOSITO,
       valor: 100,
       data: new Date('2024-10-01T00:00'),
-      conta: 'Anybank'
+      conta: 'Anybank',
     },
   ];
 
