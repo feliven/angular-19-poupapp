@@ -21,28 +21,18 @@
 
     <fieldset class="grupo-tipo-transacao" required>
       <legend class="legend">Tipo da transação</legend>
-
+      @for (tipo of tiposTransacao | keyvalue; track tipo.key) {
       <label class="label-grupo-radio">
         <input
           [(ngModel)]="novaTransacaoDoFormulario.tipo"
+          [value]="tipo.value"
           type="radio"
-          value="Saque"
           name="tipo-transacao"
           required
         />
-        Saque
+        {{ tipo.value }}
       </label>
-
-      <label class="label-grupo-radio">
-        <input
-          [(ngModel)]="novaTransacaoDoFormulario.tipo"
-          type="radio"
-          value="Depósito"
-          name="tipo-transacao"
-          required
-        />
-        Depósito
-      </label>
+      }
     </fieldset>
 
     <label class="label-grupo">
