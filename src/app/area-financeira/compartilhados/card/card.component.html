@@ -1,0 +1,14 @@
+<section class="saldo-card">
+  <div class="titulo-wrapper">
+    <ng-content select="[card-titulo]" />
+  </div>
+
+  <div class="corpo-card">
+    <ng-content></ng-content>
+  </div>
+</section>
+
+<!-- o Angular só tem suporte a um ng-content convencional dentro de um componente.
+No entanto, ele suporta a utilização de mais de um ng-content, mas precisamos
+indicar ao Angular onde cada conteúdo deve ser projetado.
+ -->
