@@ -4,6 +4,7 @@
     class="transacoes"
     [transacoes]="transacoes()"
     (transacaoCriada)="processarTransacao($event)"
+    [contas]="contas()"
   />
   <app-contas
     class="contas"

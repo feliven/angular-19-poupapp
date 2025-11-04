@@ -70,8 +70,8 @@
         required
       >
         <option value="" selected disabled>Selecione a conta</option>
-        @for (banco of bancoConta | keyvalue; track banco.key) {
-        <option [value]="banco.value">{{ banco.value }}</option>
+        @for (conta of contas() ; track conta.nome) {
+        <option [value]="conta.nome">{{ conta.nome }}</option>
         }
       </select>
     </label>
