@@ -1,0 +1,18 @@
+<app-botao (click)="abrirModal()">
+  <img src="icones/carteira.svg" alt="" class="icone-carteira" />
+  Adicionar conta
+</app-botao>
+<app-modal [(aberto)]="modalAberto">
+  <ng-container modal-cabecalho class="modal-cabecalho">
+    <img src="icones/moeda.svg" alt="" />
+    <h2 class="text-xl">Adicionar transação</h2>
+  </ng-container>
+
+  <form class="form text-md" ngNativeValidate>
+    <label class="label-grupo">
+      Nome da transação
+      <input class="input" type="text" name="nome-transacao" />
+    </label>
+    <app-botao class="botao-adicionar-transacao"> Adicionar </app-botao>
+  </form>
+</app-modal>
