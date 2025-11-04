@@ -9,7 +9,6 @@ import { BotaoAdicionarTransacaoComponent } from './botao-adicionar-transacao/bo
   selector: 'app-transacoes',
   imports: [
     TransacaoComponent,
-
     CardComponent,
     BotaoAdicionarTransacaoComponent,
   ],

@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { BotaoComponent } from '../../../compartilhados/botao/botao.component';
 import { ModalComponent } from '../../../compartilhados/modal/modal.component';
+import { Conta } from '../../compartilhados/conta.model';
 
 @Component({
   selector: 'app-botao-adicionar-conta',
@@ -18,6 +19,8 @@ export class BotaoAdicionarContaComponent {
     saldoInicial: '',
   };
 
+  contaCriada = output<Conta>();
+
   abrirModal() {
     // this.modal().nativeElement.showModal();
     this.modalAberto.set(true);
@@ -25,5 +28,12 @@ export class BotaoAdicionarContaComponent {
 
   onSubmit() {
     console.log(this.novaContaDoFormulario);
+    const contaASerAdicionada = new Conta(
+      this.novaContaDoFormulario.nome,
+      Number(this.novaContaDoFormulario.saldoInicial)
+    );
+
+    this.contaCriada.emit(contaASerAdicionada);
+    this.modalAberto.set(false);
   }
 }
