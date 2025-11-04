@@ -13,8 +13,17 @@ import { ModalComponent } from '../../../compartilhados/modal/modal.component';
 export class BotaoAdicionarContaComponent {
   modalAberto = signal(false);
 
+  novaContaDoFormulario = {
+    nome: '',
+    saldoInicial: '',
+  };
+
   abrirModal() {
     // this.modal().nativeElement.showModal();
     this.modalAberto.set(true);
+  }
+
+  onSubmit() {
+    console.log(this.novaContaDoFormulario);
   }
 }

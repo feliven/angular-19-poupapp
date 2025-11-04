@@ -4,15 +4,33 @@
 </app-botao>
 <app-modal [(aberto)]="modalAberto">
   <ng-container modal-cabecalho class="modal-cabecalho">
-    <img src="icones/moeda.svg" alt="" />
-    <h2 class="text-xl">Adicionar transação</h2>
+    <img src="icones/carteira.svg" alt="" />
+    <h2 class="text-xl">Adicionar conta</h2>
   </ng-container>
 
-  <form class="form text-md" ngNativeValidate>
+  <form class="form text-md" (ngSubmit)="onSubmit()" ngNativeValidate>
     <label class="label-grupo">
-      Nome da transação
-      <input class="input" type="text" name="nome-transacao" />
+      Banco
+      <input
+        [(ngModel)]="novaContaDoFormulario.nome"
+        class="input"
+        type="text"
+        name="nome-conta"
+      />
     </label>
-    <app-botao class="botao-adicionar-transacao"> Adicionar </app-botao>
+    <label class="label-grupo">
+      Saldo
+      <input
+        [(ngModel)]="novaContaDoFormulario.saldoInicial"
+        class="input"
+        type="number"
+        name="valor-saldo"
+        min="0.00"
+        step="0.01"
+        placeholder="R$ 500,00"
+        required
+      />
+    </label>
+    <app-botao class="botao-adicionar-conta"> Adicionar </app-botao>
   </form>
 </app-modal>
