@@ -13,6 +13,7 @@
 
     <app-botao-adicionar-transacao
       class="botao-adicionar-transacao"
+      (transacaoCriada)="transacaoCriada.emit($event)"
     ></app-botao-adicionar-transacao>
   </div>
 </app-card>

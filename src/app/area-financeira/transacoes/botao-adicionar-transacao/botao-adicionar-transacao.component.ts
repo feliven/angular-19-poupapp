@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { KeyValuePipe } from '@angular/common';
 
@@ -28,6 +28,8 @@ export class BotaoAdicionarTransacaoComponent {
 
   tiposTransacao = TipoTransacao;
 
+  transacaoCriada = output<Transacao>();
+
   abrirModal() {
     // this.modal().nativeElement.showModal();
     this.modalAberto.set(true);
@@ -43,5 +45,8 @@ export class BotaoAdicionarTransacaoComponent {
       this.novaTransacaoDoFormulario.conta
     );
     console.log(novaTransacao);
+
+    this.transacaoCriada.emit(novaTransacao);
+    this.modalAberto.set(false);
   }
 }
