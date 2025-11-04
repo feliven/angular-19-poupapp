@@ -70,9 +70,9 @@
         required
       >
         <option value="" selected disabled>Selecione a conta</option>
-
-        <option value="Anybank">Anybank</option>
-        <option value="Bytebank">Bytebank</option>
+        @for (banco of bancoConta | keyvalue; track banco.key) {
+        <option [value]="banco.value">{{ banco.value }}</option>
+        }
       </select>
     </label>
 

@@ -6,6 +6,7 @@ import { BotaoComponent } from '../../../compartilhados/botao/botao.component';
 import { ModalComponent } from '../../../compartilhados/modal/modal.component';
 import { TipoTransacao } from '../../../compartilhados/TipoTransacao';
 import { Transacao } from '../../compartilhados/transacao.model';
+import { BancoConta } from '../../../compartilhados/BancoConta';
 
 @Component({
   selector: 'app-botao-adicionar-transacao',
@@ -27,6 +28,7 @@ export class BotaoAdicionarTransacaoComponent {
   };
 
   tiposTransacao = TipoTransacao;
+  bancoConta = BancoConta;
 
   transacaoCriada = output<Transacao>();
 
