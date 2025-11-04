@@ -5,6 +5,7 @@ import { KeyValuePipe } from '@angular/common';
 import { BotaoComponent } from '../../../compartilhados/botao/botao.component';
 import { ModalComponent } from '../../../compartilhados/modal/modal.component';
 import { TipoTransacao } from '../../../compartilhados/TipoTransacao';
+import { Transacao } from '../../compartilhados/transacao.model';
 
 @Component({
   selector: 'app-botao-adicionar-transacao',
@@ -34,5 +35,13 @@ export class BotaoAdicionarTransacaoComponent {
 
   onSubmit() {
     console.log(this.novaTransacaoDoFormulario);
+    const novaTransacao = new Transacao(
+      this.novaTransacaoDoFormulario.nome,
+      this.novaTransacaoDoFormulario.tipo as TipoTransacao,
+      Number(this.novaTransacaoDoFormulario.valor),
+      this.novaTransacaoDoFormulario.data,
+      this.novaTransacaoDoFormulario.conta
+    );
+    console.log(novaTransacao);
   }
 }
