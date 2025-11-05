@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 import { SaldoComponent } from './saldo/saldo.component';
 import { TransacoesComponent } from './transacoes/transacoes.component';
@@ -58,26 +58,56 @@ export class AreaFinanceiraComponent {
     },
   ]);
 
-  contas = signal<Conta[]>([
+  contasComSaldoInicial = signal<Conta[]>([
     {
       nome: 'Anybank',
       saldo: 1000,
     },
     {
       nome: 'Bytebank',
-      saldo: 0,
+      saldo: 200,
     },
     {
       nome: 'Switch Bank',
-      saldo: 0,
+      saldo: 450,
     },
   ]);
+
+  contas = computed(() => {
+    return this.contasComSaldoInicial().map((conta) => {
+      const saldoAtualizado = this.calcularSaldoAtualizado(conta);
+      return { ...conta, saldo: saldoAtualizado };
+    });
+  });
+
+  calcularSaldoAtualizado(conta: Conta) {
+    const transacoesDaConta = this.transacoes().filter((transacao) => {
+      return transacao.conta === conta.nome;
+    });
+
+    const saldoAtualizado = transacoesDaConta.reduce(
+      (acumulador, transacao) => {
+        switch (transacao.tipo) {
+          case TipoTransacao.DEPOSITO:
+            return acumulador + transacao.valor;
+
+          case TipoTransacao.SAQUE:
+            return acumulador - transacao.valor;
+          default:
+            transacao.tipo satisfies never;
+            throw new Error('Tipo de transação não identificada.');
+        }
+      },
+      conta.saldo
+    );
+    return saldoAtualizado;
+  }
 
   processarTransacao(transacao: Transacao) {
     this.transacoes.update((transacoes) => [transacao, ...transacoes]);
   }
 
   processarNovaConta(conta: Conta) {
-    this.contas.update((contas) => [conta, ...contas]);
+    this.contasComSaldoInicial.update((contas) => [conta, ...contas]);
   }
 }
