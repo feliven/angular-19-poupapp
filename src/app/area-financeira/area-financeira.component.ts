@@ -13,13 +13,13 @@ import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
   styleUrl: './area-financeira.component.css',
 })
 export class AreaFinanceiraComponent {
-  saldo = -30;
+  // saldo = -30;
 
-  saldoInicial = computed(() => {
-    return this.contasComSaldoInicial().reduce((acumulador, conta) => {
-      return acumulador + conta.saldo;
-    }, 0);
-  });
+  // saldoInicial = computed(() => {
+  //   return this.contasComSaldoInicial().reduce((acumulador, conta) => {
+  //     return acumulador + conta.saldo;
+  //   }, 0);
+  // });
 
   saldoCalculado = computed(() => {
     return this.contas().reduce((acumulador, conta) => {

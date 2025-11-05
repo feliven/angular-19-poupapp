@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+
 import { ContaComponent } from './conta/conta.component';
 import { Conta } from '../compartilhados/conta.model';
 import { CardComponent } from '../compartilhados/card/card.component';

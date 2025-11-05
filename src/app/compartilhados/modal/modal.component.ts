@@ -2,10 +2,8 @@ import {
   afterRender,
   Component,
   ElementRef,
-  input,
   model,
   viewChild,
-  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -15,10 +13,6 @@ import {
 })
 export class ModalComponent {
   modal = viewChild.required<ElementRef<HTMLDialogElement>>('modal');
-
-  // @ViewChild('modal') modal!: ElementRef<HTMLDialogElement>;
-
-  // @Input() aberto = false;
 
   aberto = model(false);
 

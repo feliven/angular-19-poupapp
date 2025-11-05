@@ -1,10 +1,4 @@
-import {
-  afterRender,
-  Directive,
-  effect,
-  ElementRef,
-  input,
-} from '@angular/core';
+import { Directive, effect, ElementRef, input } from '@angular/core';
 
 @Directive({
   selector: '[appDestaqueValorNumerico]',
