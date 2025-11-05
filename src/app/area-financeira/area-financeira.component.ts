@@ -15,6 +15,18 @@ import { Transacao, TipoTransacao } from './compartilhados/transacao.model';
 export class AreaFinanceiraComponent {
   saldo = -30;
 
+  saldoInicial = computed(() => {
+    return this.contasComSaldoInicial().reduce((acumulador, conta) => {
+      return acumulador + conta.saldo;
+    }, 0);
+  });
+
+  saldoCalculado = computed(() => {
+    return this.contas().reduce((acumulador, conta) => {
+      return acumulador + conta.saldo;
+    }, 0);
+  });
+
   transacoes = signal<Transacao[]>([
     {
       id: '5',
